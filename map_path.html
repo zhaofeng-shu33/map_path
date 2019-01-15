@@ -41,14 +41,14 @@
         }        
     }
     else{
-        var important_list = [[0, '起点，清华石碑'],
-                [34, '深大石桥<br/> 用时28分，2.3km'],
-                [58, '南科大正门里<br/> 用时37分半，3.0km'],
-                [61, '终点， 实验室园区门口']];
+        var important_list = [[0, '起点，清华石碑',{position: point_list[0]}],
+                [34, '深大石桥<br/> 用时28分，2.3km',{position: point_list[34]}],
+                [58, '南科大正门里<br/> 用时37分半，3.0km',{position: point_list[58]}],
+                [61, '终点， 实验室园区门口',{offset:new BMap.Size(-20,0), position: point_list[61]}]];
         for(var i = 0; i < important_list.length; i++){
             var label_str = String(important_list[i][1]);
             var index = important_list[i][0];
-            var marker = new BMap.Label(label_str, {position: point_list[index]});
+            var marker = new BMap.Label(label_str, important_list[i][2]);
             var marker_p = new BMap.Marker(point_list[index]);
             map.addOverlay(marker_p);
             map.addOverlay(marker);  
