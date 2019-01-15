@@ -16,7 +16,7 @@
 </body>  
 <script src="map_data.js"></script>
 <script type="text/javascript">
-    const DEBUG = true;
+    const DEBUG = false;
     const x_final = 114.007879, y_final = 22.600628;
     const x_measure_final = 114.00142432200855, y_measure_final = 22.59425470070209;
     const x_offset = x_final - x_measure_final, y_offset = y_final - y_measure_final;
@@ -32,6 +32,7 @@
     var polyline = new BMap.Polyline(point_list,
         {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}
         );
+    var important_index_list = [34, 48];
     if(DEBUG){
         for(var i = 0; i < map_data.length; i++){
             var label_str = String(map_data[i][2])
@@ -39,7 +40,21 @@
             map.addOverlay(marker);
         }        
     }
-    map.addOverlay(polyline);    
+    else{
+        var important_list = [[0, '起点，清华石碑'],
+                [34, '深大石桥<br/> 用时28分，2.3km'],
+                [58, '南科大正门里<br/> 用时37分半，3.0km'],
+                [61, '终点， 实验室园区门口']];
+        for(var i = 0; i < important_list.length; i++){
+            var label_str = String(important_list[i][1]);
+            var index = important_list[i][0];
+            var marker = new BMap.Label(label_str, {position: point_list[index]});
+            var marker_p = new BMap.Marker(point_list[index]);
+            map.addOverlay(marker_p);
+            map.addOverlay(marker);  
+        }            
+    }
+    map.addOverlay(polyline);  
 </script>
 
 </html>
