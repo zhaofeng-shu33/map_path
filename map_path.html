@@ -16,6 +16,55 @@
 </body>  
 <script src="map_data.js"></script>
 <script type="text/javascript">
+    const map_style = [{
+            "featureType": "restaurantlabel",
+            "elementType": "labels",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "shoppinglabel",
+            "elementType": "labels",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "restaurantlabel",
+            "elementType": "labels.icon",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "hotellabel",
+            "elementType": "labels",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "hotellabel",
+            "elementType": "labels.icon",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "shoppinglabel",
+            "elementType": "labels.icon",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "lifeservicelabel",
+            "elementType": "labels",
+            "stylers": {
+                "visibility": "off"
+            }
+        }, {
+            "featureType": "lifeservicelabel",
+            "elementType": "labels.icon",
+            "stylers": {
+                "visibility": "off"
+            }
+        }];
     const DEBUG = false;
     const x_final = 114.007879, y_final = 22.600628;
     const x_measure_final = 114.00142432200855, y_measure_final = 22.59425470070209;
@@ -55,6 +104,7 @@
         }            
     }
     map.addOverlay(polyline);  
+    map.setMapStyle({styleJson: map_style }); 
 </script>
 
 </html>
